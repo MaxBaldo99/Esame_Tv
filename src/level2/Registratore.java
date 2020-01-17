@@ -34,8 +34,8 @@ public class Registratore implements API.Registratore {
      */
     @Override
     public boolean controllaPrenotazioneTrasmissione(Trasmissione tr) {
-        List<Trasmissione> disponibilità = trasmissioniFuture.stream().filter(x -> x.equals(tr)).collect(Collectors.toList());
-        return !disponibilità.isEmpty();
+        List<Trasmissione> disponibilita = trasmissioniFuture.stream().filter(x -> x.equals(tr)).collect(Collectors.toList());
+        return !disponibilita.isEmpty();
     }
 
     /**

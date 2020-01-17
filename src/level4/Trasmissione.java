@@ -1,5 +1,10 @@
 package level4;
 
+import Eccezioni.DataNelPassatoException;
+import Eccezioni.LinguaNonPresenteException;
+import Eccezioni.NonTrasmissioneException;
+import Eccezioni.SottitoliGiaPresentiException;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -45,15 +50,16 @@ public class Trasmissione {
      * @param dataEOra data e ora della messas in onda REQUIRE NOT NULL and AFTER ACTUAL TIME
      * @param durata durata della trasmissione REQUIRE NOT NULL
      * @throws NullPointerException se uno dei parametri REQUIRE NOT NULL è NULL
+     * @throws DataNelPassatoException se la data è al passato
      */
     public Trasmissione(
             String titolo, Genere genere, String informazioni, List<String> lingue, String linguaDefault,
             LocalDateTime dataEOra, Duration durata)
-            throws NullPointerException, IllegalArgumentException {
+            throws NullPointerException, DataNelPassatoException {
 
         paramNotNull(titolo, linguaDefault, dataEOra, durata);
         if(dataEOra.isBefore(LocalDateTime.now())) {
-            throw new IllegalArgumentException("Data e ora devono essere successive a ora");
+            throw new DataNelPassatoException();
         }
         this.titolo = titolo;
         this.genere = genere;
@@ -145,18 +151,19 @@ public class Trasmissione {
      * per una lingua è possibile avere solo una stringa di sottotitoli
      * @param lingua la lingua dei sottotitoli. deve essere già presente nella lista delle lingue REQUIRE NOT NULL
      * @param sottotitoli i sottotitoli nella citata lingua REQUIRE NOT NULL
-     * @throws IllegalArgumentException se lingua non presente tra lingue o se esistono già sottotitoli in tale lingua
+     * @throws LinguaNonPresenteException se lingua non è presente tra le lingue della trasmissione
+     * @throws SottitoliGiaPresentiException se esistono già dei sottotitoli nella lingua ricevuta
      * @throws NullPointerException se lingua o sottotitoli sono null
      */
     public void setSottotitoli(String lingua, String sottotitoli)
-            throws IllegalArgumentException, NullPointerException {
+            throws NullPointerException, SottitoliGiaPresentiException, LinguaNonPresenteException {
 
         lingua = Objects.requireNonNull(lingua);
         sottotitoli = Objects.requireNonNull(sottotitoli);
         if(! lingue.contains(lingua)) {
-            throw new IllegalArgumentException(lingua + ": lingua non esistente nella trasmissione");
+            throw new LinguaNonPresenteException();
         } else if(this.sottotitoli.containsKey(lingua)) {
-            throw new IllegalArgumentException("esiste già un sottotitolo con questa lingua: " + lingua);
+            throw new SottitoliGiaPresentiException();
         } else {
             this.sottotitoli.put(lingua, sottotitoli);
         }
@@ -170,13 +177,13 @@ public class Trasmissione {
      * set data e ora della trasmissione
      * @param dataEOra REQUIRE NOT NULL AND AFTER ACTUAL TIME (no in past)
      * @throws NullPointerException se dataEOra is NULL
-     * @throws IllegalArgumentException se dataEOra is before LocalDateTime.now()
+     * @throws DataNelPassatoException se dataEOra is before LocalDateTime.now()
      */
     public void setDataEOra(LocalDateTime dataEOra)
-            throws NullPointerException, IllegalArgumentException {
+            throws NullPointerException, DataNelPassatoException {
         dataEOra = Objects.requireNonNull(dataEOra);
         if(dataEOra.isBefore(LocalDateTime.now())) {
-            throw new IllegalArgumentException("Data e ora devono essere successive a ora");
+            throw new DataNelPassatoException();
         }
         this.dataEOra = dataEOra;
     }
@@ -212,8 +219,8 @@ public class Trasmissione {
                     trasmissione.getDataEOraInizio().isEqual(dataEOra) &&
                     trasmissione.getDurata().equals(this.getDurata());
 
-        } catch (IllegalArgumentException iae) {
-            throw new IllegalArgumentException("parametro non è una trasmissione");
+        } catch (NonTrasmissioneException nte) {
+            throw new NonTrasmissioneException();
         }
     }
 
