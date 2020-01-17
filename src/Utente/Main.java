@@ -3,6 +3,7 @@ package Utente;
 import Applicazione.*;
 import level2.*;
 import level2.GestoreCanale;
+import level3.Canale;
 import level4.Genere;
 import level4.Trasmissione;
 
@@ -15,9 +16,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Applicazione app = new Applicazione();
 
-        GestoreCanale gc = new GestoreCanale();
-        gc.addCanale(1, "Rai1", null);
-        gc.getCanali().get(0).addTrasmissioni( new Trasmissione(
+        Canale rai1 = app.creaCanale("Italia1", null);
+        Trasmissione simpson = app.creaTrasmissione(
                 "Simpson",
                 Genere.SHOW,
                 null,
@@ -25,6 +25,10 @@ public class Main {
                 "italiano",
                 LocalDateTime.of(2015, Month.JANUARY, 20, 20, 30),
                 Duration.ofMinutes(25)
-        ));
+        );
+
+        app.inserisciTrasmissione(rai1, simpson);
+        app.inserisciCanale(6, rai1);
+
     }
 }

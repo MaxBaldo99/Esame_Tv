@@ -233,7 +233,7 @@ public class Trasmissione {
      * @param durata durata della trasmissione REQUIRE NOT NULL
      * @throws NullPointerException
      */
-    public void paramNotNull ( String titolo, String linguaDefault, LocalDateTime dataEOra, Duration durata)
+    public static void paramNotNull ( String titolo, String linguaDefault, LocalDateTime dataEOra, Duration durata)
             throws NullPointerException {
         Objects.requireNonNull(titolo);
         Objects.requireNonNull(linguaDefault);
