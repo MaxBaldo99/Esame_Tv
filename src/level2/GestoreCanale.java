@@ -1,8 +1,11 @@
 package level2;
-import level3.Canale;
 
+import level3.Canale;
+import level4.Trasmissione;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GestoreCanale {
