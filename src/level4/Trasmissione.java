@@ -25,9 +25,6 @@ public class Trasmissione {
         List<lingue> NOT NULL
         lingue[0] lingua di default
 
-    TODO:
-        creare classe dateTimeIsInPastException("data e ora require to be after actual time")
-
      */
 
     String titolo;
@@ -236,7 +233,6 @@ public class Trasmissione {
         Objects.requireNonNull(dataEOra);
         Objects.requireNonNull(durata);
     }
-    
 
     /**
      * controlla se la trasmissione e futura

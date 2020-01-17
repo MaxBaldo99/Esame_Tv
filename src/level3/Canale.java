@@ -147,5 +147,6 @@ public class Canale {
         return trasmissioni.stream().filter(
                 t -> t.getDataEOraInizio().toLocalTime().equals(orario) && t.TrasmissioneEFutura()).collect(Collectors.toList());
     }
+
     
 }

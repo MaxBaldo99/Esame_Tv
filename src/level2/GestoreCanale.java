@@ -78,6 +78,11 @@ public class GestoreCanale {
     }
 
 
+    public List<Trasmissione> cercaPerCanale(Canale canale) {
+        return this.canali.get(canale).getTrasmissioni();
+    }
+
+
 
 
 }
