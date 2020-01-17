@@ -236,5 +236,16 @@ public class Trasmissione {
         Objects.requireNonNull(dataEOra);
         Objects.requireNonNull(durata);
     }
+    
+
+    /**
+     * controlla se la trasmissione e futura
+     * @return vero se data trasmissione è successiva a ora, falso altrimenti
+     * @throws NullPointerException se trasmissione è null
+     */
+    public boolean TrasmissioneEFutura()
+            throws NullPointerException {
+        return getDataEOraInizio().isAfter(LocalDateTime.now());
+    }
 
 }
