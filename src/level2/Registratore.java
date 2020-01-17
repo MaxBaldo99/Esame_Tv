@@ -1,12 +1,12 @@
 package level2;
 
-import API.Trasmissione;
+import Applicazione.Trasmissione;
 import Eccezioni.TrasmissioneGiaPresenteException;
 import Eccezioni.TrasmissioneNonEsistenteException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Registratore implements API.Registratore {
+public class Registratore implements Applicazione.Registratore {
 
     /* INVARIANTE DI CLASSE
     *          Le trasmissioni sono tutte non nulle */

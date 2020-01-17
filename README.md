@@ -6,7 +6,7 @@ La TV ha dei settaggi relativi al volume prescelto, alla luminosità, alla lingu
 
 I canali disponibili, e le loro trasmissioni, vengono periodicamente aggiornati. La TV dispone di un videoregistratore incorporato che funziona in automatico, sulla base di un elenco di trasmissioni settate per essere registrate. 
 
-In una API per manipolare queste informazioni ci devono essere i metodi per le seguenti operazioni: 
+In una Applicazione per manipolare queste informazioni ci devono essere i metodi per le seguenti operazioni:
 
 - [x] Poter visionare un determinato programma (eventualmente con un secondo programma se si attiva la modalità 2-in-1)
 
