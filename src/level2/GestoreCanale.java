@@ -78,6 +78,7 @@ public class GestoreCanale {
                     .filter(t -> t.getDataEOraInizio().toLocalDate().isEqual(giorno))
                     .collect(Collectors.toList()));
         }
+
         return trasmissioni;
     }
 
