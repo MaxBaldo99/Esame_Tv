@@ -50,6 +50,10 @@ public class GestoreCanale {
         this.canali.put(programma, canale);
     }
 
+    public void addCanale(Integer programma, String nome, List<Trasmissione> trasmissioni) {
+        this.canali.put(programma, new Canale(nome, trasmissioni));
+    }
+
     public void removeTrasmissioni(Canale canale) {
         this.canali.remove(canale);
     }

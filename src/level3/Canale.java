@@ -27,7 +27,8 @@ public class Canale {
     private String nome;
     List<Trasmissione> trasmissioni;
 
-    public Canale(List<Trasmissione> trasmissioni) {
+    public Canale(String nome, List<Trasmissione> trasmissioni) {
+        this.nome = nome;
         this.trasmissioni = trasmissioni;
     }
 
