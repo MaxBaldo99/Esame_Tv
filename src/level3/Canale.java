@@ -6,9 +6,11 @@ import Eccezioni.TrasmissioneNonEsistenteException;
 import level4.Trasmissione;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Canale {
 
@@ -129,6 +131,21 @@ public class Canale {
         Objects.requireNonNull(trasmissioni);
         return trasmissioni.stream().filter(
                 t -> t.getTitolo().contains(titolo) && t.TrasmissioneEFutura()).collect(Collectors.toList());
+    }
+
+    /**
+     * cerca e restituisce tutte le trasmissioni future che
+     * contengono nel titolo della trasmissione il titolo ricevuto parametro
+     * @param orario il titolo che si cerca
+     * @return lista delle trasmissioni future con quel titolo
+     * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
+     */
+    public List<Trasmissione> cercaPerOra(LocalTime orario)
+            throws NullPointerException {
+        Objects.requireNonNull(orario);
+        Objects.requireNonNull(trasmissioni);
+        return trasmissioni.stream().filter(
+                t -> t.getDataEOraInizio().toLocalTime().equals(orario) && t.TrasmissioneEFutura()).collect(Collectors.toList());
     }
     
 }

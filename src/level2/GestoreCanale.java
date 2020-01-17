@@ -1,8 +1,11 @@
 package level2;
 import level3.Canale;
+import level4.Trasmissione;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GestoreCanale {
@@ -50,6 +53,7 @@ public class GestoreCanale {
     public void removeTrasmissioni(Canale canale) {
         this.canali.remove(canale);
     }
+
      /**
      * cerca e restituisce tutte le trasmissioni di un dato giorno di tutti i canali
      * associa a ogni canale la lista delle trasmissioni di quel giorno
@@ -70,9 +74,10 @@ public class GestoreCanale {
                     .filter(t -> t.getDataEOraInizio().toLocalDate().isEqual(giorno))
                     .collect(Collectors.toList()));
         }
-
         return trasmissioni;
     }
+
+
 
 
 }
