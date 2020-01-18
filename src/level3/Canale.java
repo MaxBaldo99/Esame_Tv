@@ -127,7 +127,7 @@ public class Canale {
      * @return lista delle trasmissioni future con quel titolo
      * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
      */
-    public List<Trasmissione> cercaPerTitolo(String titolo)
+    public List<Trasmissione> cercaTrasmissioniPerTitolo(String titolo)
             throws NullPointerException {
         Objects.requireNonNull(titolo);
         Objects.requireNonNull(trasmissioni);
@@ -142,7 +142,7 @@ public class Canale {
      * @return lista delle trasmissioni future con quel titolo
      * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
      */
-    public List<Trasmissione> cercaPerOra(LocalTime orario)
+    public List<Trasmissione> cercaTrasmissioniPerOrario(LocalTime orario)
             throws NullPointerException {
         Objects.requireNonNull(orario);
         Objects.requireNonNull(trasmissioni);
@@ -157,7 +157,7 @@ public class Canale {
      * @return lista delle trasmissioni future con quel titolo
      * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
      */
-    public List<Trasmissione> cercaPerGiorno(LocalDate giorno)
+    public List<Trasmissione> cercaTrasmissioniPerGiorno(LocalDate giorno)
             throws NullPointerException {
         Objects.requireNonNull(giorno);
         return trasmissioni.stream().filter(t -> t.getDataEOraInizio().toLocalDate().isEqual(giorno)).collect(Collectors.toList());

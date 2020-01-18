@@ -58,7 +58,7 @@ public class GestoreCanale {
         this.canali.remove(canale);
     }
 
-    public List<Trasmissione> cercaPerCanale(Canale canale) {
+    public List<Trasmissione> cercaTrasmissioniPerCanale(Canale canale) {
         return this.canali.get(canale).getTrasmissioni();
     }
 
@@ -69,7 +69,7 @@ public class GestoreCanale {
      * @return lista delle trasmissioni future con quel titolo
      * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
 
-    public HashMap<Canale, List<Trasmissione>>  cercaPerGiorno(LocalDate giorno)
+    public HashMap<Canale, List<Trasmissione>>  cercaTrasmissioniPerGiorno(LocalDate giorno)
             throws NullPointerException {
         Objects.requireNonNull(giorno);
         Objects.requireNonNull(canali);
