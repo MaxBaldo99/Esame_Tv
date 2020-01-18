@@ -5,6 +5,7 @@ import Eccezioni.TrasmissioneGiaPresenteException;
 import Eccezioni.TrasmissioneNonEsistenteException;
 import level4.Trasmissione;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -147,6 +148,19 @@ public class Canale {
         Objects.requireNonNull(trasmissioni);
         return trasmissioni.stream().filter(
                 t -> t.getDataEOraInizio().toLocalTime().equals(orario) && t.TrasmissioneEFutura()).collect(Collectors.toList());
+    }
+
+    /**
+     * cerca e restituisce tutte le trasmissioni di un dato giorno di tutti i canali
+     * associa a ogni canale la lista delle trasmissioni di quel giorno
+     * @param giorno il titolo che si cerca
+     * @return lista delle trasmissioni future con quel titolo
+     * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
+     */
+    public List<Trasmissione> cercaPerGiorno(LocalDate giorno)
+            throws NullPointerException {
+        Objects.requireNonNull(giorno);
+        return trasmissioni.stream().filter(t -> t.getDataEOraInizio().toLocalDate().isEqual(giorno)).collect(Collectors.toList());
     }
 
     

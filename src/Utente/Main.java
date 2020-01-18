@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Applicazione app = new Applicazione();
 
-        Canale rai1 = app.creaCanale("Italia1", null);
+        Canale italia1 = app.creaCanale("Italia1", null);
         Trasmissione simpson = app.creaTrasmissione(
                 "Simpson",
                 Genere.SHOW,
@@ -27,8 +27,9 @@ public class Main {
                 Duration.ofMinutes(25)
         );
 
-        app.inserisciTrasmissione(rai1, simpson);
-        app.inserisciCanale(6, rai1);
+        app.inserisciCanale(6, italia1);
+        app.inserisciTrasmissione(italia1, simpson);
+
 
     }
 }

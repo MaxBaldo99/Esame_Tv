@@ -16,7 +16,11 @@ public class TV {
     Integer canaleSelezPrinc;
     Integer canaleSelezSecond;
 
-    public TV() { }
+    public TV() {
+        lingua = null;
+        canaleSelezPrinc = null;
+        canaleSelezSecond = null;
+    }
 
     public TV(int volume, int luminosita, String lingua, boolean doppioSchermo, Integer canaleSelezPrinc, Integer canaleSelezSecond) {
         this.volume = volume;

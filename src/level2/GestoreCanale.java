@@ -58,13 +58,17 @@ public class GestoreCanale {
         this.canali.remove(canale);
     }
 
-     /**
+    public List<Trasmissione> cercaPerCanale(Canale canale) {
+        return this.canali.get(canale).getTrasmissioni();
+    }
+
+     /*
      * cerca e restituisce tutte le trasmissioni di un dato giorno di tutti i canali
      * associa a ogni canale la lista delle trasmissioni di quel giorno
      * @param giorno il titolo che si cerca
      * @return lista delle trasmissioni future con quel titolo
      * @throws NullPointerException se titolo è nullo o se non è stata ancora inserita nessuna trasmissione
-     */
+
     public HashMap<Canale, List<Trasmissione>>  cercaPerGiorno(LocalDate giorno)
             throws NullPointerException {
         Objects.requireNonNull(giorno);
@@ -82,10 +86,8 @@ public class GestoreCanale {
         return trasmissioni;
     }
 
+    */
 
-    public List<Trasmissione> cercaPerCanale(Canale canale) {
-        return this.canali.get(canale).getTrasmissioni();
-    }
 
 
 

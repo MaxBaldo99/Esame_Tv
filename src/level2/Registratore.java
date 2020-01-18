@@ -1,6 +1,6 @@
 package level2;
 
-import Applicazione.Trasmissione;
+import level3.Trasmissione;
 import Eccezioni.TrasmissioneGiaPresenteException;
 import Eccezioni.TrasmissioneNonEsistenteException;
 import java.util.List;

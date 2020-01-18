@@ -1,5 +1,7 @@
 package Applicazione;
 
+import level3.Trasmissione;
+
 public interface Registratore {
 
     /*
