@@ -28,8 +28,7 @@ public class Trasmissione implements level3.Trasmissione {
 
     INVARIANTE:
         List<lingue> NOT NULL
-        lingue[0] lingua di default
-
+        lingue.size() > 0 (esiste sempre quella di default)
      */
 
     private String titolo;
@@ -64,10 +63,20 @@ public class Trasmissione implements level3.Trasmissione {
         this.titolo = titolo;
         this.genere = genere;
         this.informazioni = informazioni;
+        standarizzaLingue(lingue);
         this.lingue = lingue;
         setLinguaDefault(linguaDefault);
         this.dataEOra = dataEOra;
         this.durata = durata;
+    }
+
+    private List<String> standarizzaLingue(List<String> lingue) {
+        lingue.forEach(l -> standarizzaLingua(l));
+        return lingue;
+    }
+
+    private String standarizzaLingua(String lingua) {
+        return lingua.toLowerCase();
     }
 
     public String getTitolo() {
@@ -103,6 +112,8 @@ public class Trasmissione implements level3.Trasmissione {
         return lingue;
     }
 
+    public String getLinguaDefault() { return lingue.get(0); }
+
     /**
      * cambia le lingue della trasmissione
      * ATTENZIONE: la prima lingua nella lista diventa quella di default
@@ -112,18 +123,20 @@ public class Trasmissione implements level3.Trasmissione {
     public void setLingue(List<String> lingue)
             throws NullPointerException {
         lingue = Objects.requireNonNull(lingue);
+        standarizzaLingue(lingue);
         this.lingue = lingue;
     }
 
     /**
      * imposta come lingua di default quella nel parametro
      * la lingua viene aggiunta alle lingue della trasmissione se non era presente
-     * @param lingua
+     * @param lingua REQUIRE NOT NULL
      */
     public void setLinguaDefault(String lingua) {
-
-            //lingue is null
+        Objects.requireNonNull(lingua);
+        lingua = standarizzaLingua(lingua);
         if (lingue == null) {
+            //lingue is null
             lingue.add(lingua);
         } else if (lingue.contains(lingua)) {
             //la lingua è già presente tra le lingue
