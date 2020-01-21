@@ -32,13 +32,13 @@ public class Trasmissione implements level3.Trasmissione {
 
      */
 
-    String titolo;
-    Genere genere;
-    String informazioni;
-    List<String> lingue; //era meglio usare Set
-    HashMap<String, String> sottotitoli;
-    LocalDateTime dataEOra;
-    Duration durata;
+    private String titolo;
+    private Genere genere;
+    private String informazioni;
+    private List<String> lingue; //era meglio usare Set
+    private HashMap<String, String> sottotitoli;
+    private LocalDateTime dataEOra;
+    private Duration durata;
 
     /**
      * crea una nuova trasmissione

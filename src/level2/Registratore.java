@@ -11,7 +11,7 @@ public class Registratore implements Applicazione.Registratore {
     /* INVARIANTE DI CLASSE
     *          Le trasmissioni sono tutte non nulle */
 
-    List<Trasmissione> trasmissioniFuture;
+    private List<Trasmissione> trasmissioniFuture;
 
     /**
      * Aggiunge una nuova trasmissione a quelle da registrare

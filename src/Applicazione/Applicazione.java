@@ -15,9 +15,9 @@ import static level4.Trasmissione.paramNotNull;
 
 public class Applicazione {
 
-    TV tv;
-    GestoreCanale gestore;
-    Registratore registratore;
+    private TV tv;
+    private GestoreCanale gestore;
+    private Registratore registratore;
 
     public Applicazione() {
         tv = new TV();

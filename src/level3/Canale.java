@@ -26,7 +26,7 @@ public class Canale {
      */
 
     private String nome;
-    List<Trasmissione> trasmissioni;
+    private List<Trasmissione> trasmissioni;
 
     public Canale(String nome, List<Trasmissione> trasmissioni) {
         this.nome = nome;

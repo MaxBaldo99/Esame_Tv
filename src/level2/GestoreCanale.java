@@ -25,7 +25,7 @@ public class GestoreCanale {
         ogni suo elemento chiave-valore è composto da chiavi-valori non nulli
      */
 
-    HashMap<Integer, Canale> canali;
+    private HashMap<Integer, Canale> canali;
 
     public GestoreCanale(HashMap<Integer, Canale> canali) {
         if(canali != null) {

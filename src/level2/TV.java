@@ -9,12 +9,12 @@ public class TV {
         canaleSelezSecond == NULL se e solo se doppioSchermo == false
      */
 
-    int volume;
-    int luminosita;
-    String lingua;
-    boolean doppioSchermo;
-    Integer canaleSelezPrinc;
-    Integer canaleSelezSecond;
+    private int volume;
+    private int luminosita;
+    private String lingua;
+    private boolean doppioSchermo;
+    private Integer canaleSelezPrinc;
+    private Integer canaleSelezSecond;
 
     public TV() {
         lingua = null;
