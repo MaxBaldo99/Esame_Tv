@@ -7,6 +7,7 @@ import Eccezioni.SottitoliGiaPresentiException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.time.Duration;
@@ -38,6 +39,7 @@ public class Trasmissione implements level3.Trasmissione {
     private HashMap<String, String> sottotitoli;
     private LocalDateTime dataEOra;
     private Duration durata;
+
 
     /**
      * crea una nuova trasmissione
@@ -263,5 +265,7 @@ public class Trasmissione implements level3.Trasmissione {
             throws NullPointerException {
         return getDataEOraInizio().isAfter(LocalDateTime.now());
     }
+
+
 
 }

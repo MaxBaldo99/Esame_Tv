@@ -29,8 +29,15 @@ public class GestoreCanale {
 
     public GestoreCanale(HashMap<Integer, Canale> canali) {
         if(canali != null) {
-            List<Integer> keys = canali.keySet().stream().filter(i -> i == null).collect(Collectors.toList());
-            List<Canale> values = canali.values().stream().filter(c -> c == null).collect(Collectors.toList());
+            List<Integer> keys = canali
+                    .keySet()
+                    .stream()
+                    .filter(i -> i == null)
+                    .collect(Collectors.toList());
+            List<Canale> values = canali.values()
+                    .stream()
+                    .filter(c -> c == null)
+                    .collect(Collectors.toList());
             if(!(keys == null && values == null)) {
                 throw new NullPointerException("ogni canale deve avere chiave e valore non nulli");
             }

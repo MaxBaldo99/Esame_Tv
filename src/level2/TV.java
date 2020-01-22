@@ -67,7 +67,8 @@ public class TV {
      * @param canaleSecondario se doppio schermo abilitato, indica il secondo canale da vedere
      * @throws NullPointerException se doppioSchermo == true && canale == NULL
      */
-    private void setDoppioSchermo(boolean doppioSchermo, Integer canaleSecondario) throws NullPointerException {
+    private void setDoppioSchermo(boolean doppioSchermo, Integer canaleSecondario)
+            throws NullPointerException {
         if(doppioSchermo) {
             Objects.requireNonNull(canaleSecondario);
             canaleSelezSecond = canaleSecondario;

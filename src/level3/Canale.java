@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -131,8 +132,10 @@ public class Canale {
             throws NullPointerException {
         Objects.requireNonNull(titolo);
         Objects.requireNonNull(trasmissioni);
-        return trasmissioni.stream().filter(
-                t -> t.getTitolo().contains(titolo) && t.TrasmissioneEFutura()).collect(Collectors.toList());
+        return trasmissioni
+                .stream()
+                .filter(t -> t.getTitolo().contains(titolo) && t.TrasmissioneEFutura())
+                .collect(Collectors.toList());
     }
 
     /**
@@ -163,5 +166,13 @@ public class Canale {
         return trasmissioni.stream().filter(t -> t.getDataEOraInizio().toLocalDate().isEqual(giorno)).collect(Collectors.toList());
     }
 
-    
+    /**
+     * @return a standard iterator over the Integers of this set. The iterator is
+     *         not sensible to mutations of this set.
+     */
+    public Iterator<Trasmissione> iterator() {
+        assert (trasmissioni != null);
+        return trasmissioni.iterator();
+    }
+
 }
