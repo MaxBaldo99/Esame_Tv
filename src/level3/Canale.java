@@ -167,8 +167,7 @@ public class Canale {
     }
 
     /**
-     * @return a standard iterator over the Integers of this set. The iterator is
-     *         not sensible to mutations of this set.
+     * @return iteratore di trasmissioni
      */
     public Iterator<Trasmissione> iterator() {
         assert (trasmissioni != null);
